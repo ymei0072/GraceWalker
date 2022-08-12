@@ -63,14 +63,14 @@ export default function App() {
             value={stepCount}
             maxValue={5000}
             radius={210}
-            textColor={'#ECF0F1'}
-            activeStrokeColor={'#F39C12'}
-            inActiveStrokeColor={'#9B59B6'}
+            textColor={'#FCDEBE'}
+            activeStrokeColor={'#FCDEBE'}
+            inActiveStrokeColor={'#D4D2A5'}
             inActiveStrokeOpacity={0.5}
             inActiveStrokeWidth={40}
             activeStrokeWidth={40}
             title={'Step Count'}
-            titleColor={'#ECF0F1'}
+            titleColor={'#FCDEBE'}
             textStyle={{ fontWeight: 'bold' }}
           />
         </View>
@@ -97,10 +97,11 @@ export default function App() {
                 {
                   width: '93%',
                   paddingLeft: 20,
-                  marginLeft: '-3.5%',
+                  marginLeft: '-7%',
                 },
               ]}
             >
+              {'  '}
               Distance: {distanceCovered} miles
             </Text>
           </View>
@@ -131,23 +132,28 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
   },
   headingDesign: {
-    color: 'white',
-    backgroundColor: 'rgba(155,89,182,0.5)',
+    color: '#1B3022',
+    backgroundColor: 'rgba(212, 210, 165,0.5)',
     alignSelf: 'center',
-    fontSize: 20,
+    fontSize: 40,
     fontWeight: 'bold',
     fontFamily: 'Arial',
+    borderRadius: 20,
+    borderColor: '#1B3022',
+    borderWidth: 1,
+    borderRadius: 10,
+    overflow: 'hidden',
   },
   textDesign: {
-    backgroundColor: 'rgba(155,89,182,0.5)',
+    backgroundColor: 'rgba(212, 210, 165,0.5)',
     height: 50,
     width: '85%',
-    borderColor: 'white',
+    borderColor: '#1B3022',
     borderWidth: 1,
     borderRadius: 20,
     overflow: 'hidden',
     fontSize: 25,
-    color: 'white',
+    color: '#1B3022',
     fontWeight: 'bold',
     fontFamily: 'Arial',
   },
