@@ -36,25 +36,39 @@ export default function App() {
         resizeMode="cover"
         source={require('./assets/walking.png')}
       >
-        <Text style={styles.headingDesign}>
-          Get Your Steps In! {PedometerAvailability}
-        </Text>
+        <View style={{ flex: 1, justifyContent: 'center' }}>
+          <Text style={styles.headingDesign}>
+            Get Your Steps In! {PedometerAvailability}
+          </Text>
 
-        <View>
-          <CircularProgress
-            value={stepCount}
-            maxValue={5000}
-            radius={210}
-            textColor={'#ECF0F1'}
-            activeStrokeColor={'#F39C12'}
-            inActiveStrokeColor={'#9B59B6'}
-            inActiveStrokeOpacity={0.5}
-            inActiveStrokeWidth={40}
-            activeStrokeWidth={40}
-            title={'Step Count'}
-            titleColor={'#ECF0F1'}
-            textStyle={{ fontWeight: 'bold' }}
-          />
+          <View>
+            <CircularProgress
+              value={stepCount}
+              maxValue={5000}
+              radius={210}
+              textColor={'#ECF0F1'}
+              activeStrokeColor={'#F39C12'}
+              inActiveStrokeColor={'#9B59B6'}
+              inActiveStrokeOpacity={0.5}
+              inActiveStrokeWidth={40}
+              activeStrokeWidth={40}
+              title={'Step Count'}
+              titleColor={'#ECF0F1'}
+              textStyle={{ fontWeight: 'bold' }}
+            />
+          </View>
+
+          <View>
+            <Text style={styles.textDesign}>Target: 5000 steps</Text>
+          </View>
+
+          <View>
+            <Text style={styles.textDesign}>Distance Covered:</Text>
+          </View>
+
+          <View>
+            <Text style={styles.textDesign}>Calories Burned:</Text>
+          </View>
         </View>
       </ImageBackground>
 
