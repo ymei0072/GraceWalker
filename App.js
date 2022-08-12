@@ -90,4 +90,17 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontFamily: 'Arial',
   },
+  textDesign: {
+    backgroundColor: 'rgba(155,89,182,0.5)',
+    height: 50,
+    width: '85%',
+    borderColor: 'white',
+    borderWidth: 1,
+    borderRadius: 20,
+    overflow: 'hidden',
+    fontSize: 25,
+    color: 'white',
+    fontWeight: 'bold',
+    fontFamily: 'Arial',
+  },
 });
