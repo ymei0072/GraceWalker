@@ -6,6 +6,7 @@ import {
   View,
   ImageBackground,
   Dimensions,
+  Button,
 } from 'react-native';
 import { Pedometer } from 'expo-sensors';
 import CircularProgress from 'react-native-circular-progress-indicator';
@@ -18,11 +19,11 @@ export default function App() {
 
   //approx. 2k steps per mile (4mph brisk walking)
   let distance = stepCount / 2000;
-  let distanceCovered = distance.toFixed(2);
+  let distanceCovered = distance.toFixed(1);
 
   //calorie count approx 65cal burned per mi. for 120lb person
   let calorie = distanceCovered * 65;
-  let caloriesBurnt = calorie.toFixed(2);
+  let caloriesBurnt = calorie.toFixed(0);
 
   useEffect(() => {
     subscribe();
@@ -62,19 +63,18 @@ export default function App() {
           <CircularProgress
             value={stepCount}
             maxValue={5000}
-            radius={210}
+            radius={190}
             textColor={'#FCDEBE'}
             activeStrokeColor={'#FCDEBE'}
             inActiveStrokeColor={'#D4D2A5'}
             inActiveStrokeOpacity={0.5}
             inActiveStrokeWidth={40}
             activeStrokeWidth={40}
-            title={'Step Count'}
+            title={'Steps'}
             titleColor={'#FCDEBE'}
             textStyle={{ fontWeight: 'bold' }}
           />
         </View>
-
         <View style={{ flex: 1, justifyContent: 'center' }}>
           <View style={{ flex: 1 }}>
             <Text
