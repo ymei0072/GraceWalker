@@ -35,14 +35,14 @@ export default function App() {
     });
 
     //Is the pedometer available on the device?
-    Pedometer.isAvailableAsync().then(
-      (result) => {
-        setPedometerAvailability(String(result));
-      },
-      (error) => {
-        setPedometerAvailability(error);
-      }
-    );
+    // Pedometer.isAvailableAsync().then(
+    //   (result) => {
+    //     setPedometerAvailability(String(result));
+    //   },
+    //   (error) => {
+    //     setPedometerAvailability(error);
+    //   }
+    // );
   };
 
   return (
@@ -54,7 +54,8 @@ export default function App() {
       >
         <View style={{ flex: 1, justifyContent: 'center' }}>
           <Text style={styles.headingDesign}>
-            Get Your Steps In! {PedometerAvailability}
+            Get Your Steps In!
+            {/* {PedometerAvailability} */}
           </Text>
         </View>
         <View style={{ flex: 3 }}>
