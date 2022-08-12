@@ -8,6 +8,14 @@ export default function App() {
   const [PedometerAvailability, setPedometerAvailability] = useState('');
   const [stepCount, setStepCount] = useState(0);
 
+  //approx. 2k steps per mile (4mph brisk walking)
+  let distance = stepCount / 2000;
+  let distanceCovered = distance.toFixed(2);
+
+  //calorie count approx 65cal burned per mi. for 120lb person
+  let calorie = distanceCovered * 65;
+  let caloriesBurnt = calorie.toFixed(2);
+
   useEffect(() => {
     subscribe();
   }, []);
@@ -41,7 +49,7 @@ export default function App() {
             Get Your Steps In! {PedometerAvailability}
           </Text>
 
-          <View>
+          <View style={{ flex: 3 }}>
             <CircularProgress
               value={stepCount}
               maxValue={5000}
@@ -58,16 +66,50 @@ export default function App() {
             />
           </View>
 
-          <View>
-            <Text style={styles.textDesign}>Target: 5000 steps</Text>
-          </View>
+          <View style={{ flex: 1, justifyContent: 'center' }}>
+            <View style={{ flex: 1 }}>
+              <Text
+                style={[
+                  styles.textDesign,
+                  {
+                    paddingLeft: 20,
+                    marginLeft: '23%',
+                  },
+                ]}
+              >
+                Target: 5000 steps
+              </Text>
+            </View>
 
-          <View>
-            <Text style={styles.textDesign}>Distance Covered:</Text>
-          </View>
+            <View style={{ flex: 1 }}>
+              <Text
+                style={[
+                  styles.textDesign,
+                  {
+                    width: '93%',
+                    paddingLeft: 20,
+                    marginLeft: '-7.75%',
+                  },
+                ]}
+              >
+                {'  '}
+                Distance: {distanceCovered} miles
+              </Text>
+            </View>
 
-          <View>
-            <Text style={styles.textDesign}>Calories Burned:</Text>
+            <View style={{ flex: 1 }}>
+              <Text
+                style={[
+                  styles.textDesign,
+                  {
+                    paddingLeft: 10,
+                    marginLeft: '23%',
+                  },
+                ]}
+              >
+                Calories Burned: {caloriesBurnt}
+              </Text>
+            </View>
           </View>
         </View>
       </ImageBackground>
@@ -86,7 +128,7 @@ const styles = StyleSheet.create({
     color: 'white',
     backgroundColor: 'rgba(155,89,182,0.5)',
     alignSelf: 'center',
-    fontSize: '20',
+    fontSize: 20,
     fontWeight: 'bold',
     fontFamily: 'Arial',
   },
