@@ -11,11 +11,8 @@ import {
 import { Pedometer } from 'expo-sensors';
 import CircularProgress from 'react-native-circular-progress-indicator';
 
-export default function App() {
-  const [PedometerAvailability, setPedometerAvailability] = useState('');
+export default function App({ navigation }) {
   const [stepCount, setStepCount] = useState(0);
-
-  let WindowHeight = Dimensions.get('window').height;
 
   //approx. 2k steps per mile (4mph brisk walking)
   let distance = stepCount / 2000;
@@ -31,19 +28,9 @@ export default function App() {
 
   subscribe = () => {
     //counting # of steps and storing in stepCount
-    const subscription = Pedometer.watchStepCount((result) => {
+    Pedometer.watchStepCount((result) => {
       setStepCount(result.steps);
     });
-
-    //Is the pedometer available on the device?
-    // Pedometer.isAvailableAsync().then(
-    //   (result) => {
-    //     setPedometerAvailability(String(result));
-    //   },
-    //   (error) => {
-    //     setPedometerAvailability(error);
-    //   }
-    // );
   };
 
   return (
@@ -54,10 +41,7 @@ export default function App() {
         source={require('./assets/walking.png')}
       >
         <View style={{ flex: 1, justifyContent: 'center' }}>
-          <Text style={styles.headingDesign}>
-            Get Your Steps In!
-            {/* {PedometerAvailability} */}
-          </Text>
+          <Text style={styles.headingDesign}>Get Your Steps In!</Text>
         </View>
         <View style={{ flex: 3 }}>
           <CircularProgress
@@ -75,6 +59,10 @@ export default function App() {
             textStyle={{ fontWeight: 'bold' }}
           />
         </View>
+        <Button
+          title="Go Home"
+          onPress={() => navigation.navigate('Home')}
+        ></Button>
         <View style={{ flex: 1, justifyContent: 'center' }}>
           <View style={{ flex: 1 }}>
             <Text
