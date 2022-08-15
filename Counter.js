@@ -1,6 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, ImageBackground, Button } from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  View,
+  ImageBackground,
+  Pressable,
+} from 'react-native';
 import { Pedometer } from 'expo-sensors';
 import CircularProgress from 'react-native-circular-progress-indicator';
 
@@ -35,6 +41,19 @@ export default function Counter({ navigation }) {
       >
         <View style={{ flex: 1, justifyContent: 'center' }}>
           <Text style={styles.headingDesign}>Get Your Steps In!</Text>
+          <Pressable
+            style={styles.button}
+            onPress={() => navigation.navigate('Home')}
+          >
+            <Text
+              style={{
+                fontSize: 20,
+                backgroundColor: '#FCDEBE',
+              }}
+            >
+              Go Home
+            </Text>
+          </Pressable>
         </View>
         <View style={{ flex: 3 }}>
           <CircularProgress
@@ -133,5 +152,10 @@ const styles = StyleSheet.create({
     color: '#1B3022',
     fontWeight: 'bold',
     fontFamily: 'Arial',
+  },
+  button: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 4,
   },
 });
