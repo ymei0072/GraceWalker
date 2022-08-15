@@ -8,11 +8,6 @@ export default HomeScreen = ({ navigation }) => {
       resizeMode="cover"
       source={require('./assets/pedometer.png')}
     >
-      {/* <Button
-        style={styles.button}
-        title="Go to your step counter"
-        onPress={() => navigation.navigate('Counter')}
-      /> */}
       <Pressable
         style={styles.button}
         onPress={() => navigation.navigate('Counter')}

@@ -15,11 +15,11 @@ export default function Counter({ navigation }) {
 
   //approx. 2k steps per mile (4mph brisk walking)
   let distance = stepCount / 2000;
-  let distanceCovered = distance.toFixed(1);
+  let distanceCovered = distance.toFixed(2);
 
   //calorie count approx 65cal burned per mi. for 120lb person
   let calorie = distanceCovered * 65;
-  let caloriesBurnt = calorie.toFixed(0);
+  let caloriesBurnt = calorie.toFixed(2);
 
   useEffect(() => {
     subscribe();
